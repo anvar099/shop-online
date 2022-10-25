@@ -1,0 +1,32 @@
+.nav-contacts__container {
+  width: 100%;
+  height: 4.4rem;
+  background-color: #000000 ;
+  color: white;
+  border: 2px solid rgb(115, 115, 230);
+  display: flex;
+  align-items: center;
+}
+.nav-contacts__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: 2px solid green;
+  align-items: center;
+  width: 100%;
+}
+.nav-contacts__box {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid red;
+  align-items: center;
+}
+
+
+/* From Snippets */
+.nav_facebook-icon, .nav_instagram-icon{
+  width: 2rem !important;
+  height: 2rem !important;
+  overflow: hidden;
+  fill: #fff;
+}
