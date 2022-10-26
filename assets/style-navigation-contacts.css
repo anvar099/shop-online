@@ -3,7 +3,6 @@
   height: 4.4rem;
   background-color: #000000 ;
   color: white;
-  border: 2px solid rgb(115, 115, 230);
   display: flex;
   align-items: center;
 }
@@ -11,22 +10,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border: 2px solid green;
   align-items: center;
   width: 100%;
 }
 .nav-contacts__box {
   display: flex;
   flex-direction: row;
-  border: 2px solid red;
   align-items: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
 }
-
-
-/* From Snippets */
-.nav_facebook-icon, .nav_instagram-icon{
-  width: 2rem !important;
-  height: 2rem !important;
-  overflow: hidden;
-  fill: #fff;
+.nav-contacts__box--time {
+  color: #A2A6B0;
+  margin-right: 0.8rem;
+}
+.nav-contacts__box--contact-link {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  margin-left: 0.8rem;
 }
