@@ -1,6 +1,6 @@
 {{ "style-navigation-contacts.css" | asset_url | stylesheet_tag }}
-<div class="nav-contacts__container">
-  <div class="nav-contacts__row">
+<div class="nav-contacts__container ">
+  <div class="nav-contacts__row container">
     <div class="nav-contacts__box">
       <p class="nav-contacts__box--time">Mon-Fri:
       </p>
@@ -12,10 +12,14 @@
     </div>
     <div class="nav-contacts__box">
       <p>Call Us: (00) 123 4567</p>
-      <a class="nav-contact__icon--facebook" href="https://www.facebook.com/abduganievanvar99/">
+      <div class="nav-contact__icons">
+      <a class="nav-contact__icon" href="https://www.facebook.com/abduganievanvar99/">
+        {% render 'facebook_icon.liquid' %}
       </a>
-      <a class="nav-contact__icon--instagram" href="https://www.instagram.com/a.n.v.a.r___/">
+      <a class="nav-contact__icon" href="https://www.instagram.com/a.n.v.a.r___/">
+        {% render 'instagram_icon.liquid' %}
       </a>
+    </div>
     </div>
   </div>
 </div>
