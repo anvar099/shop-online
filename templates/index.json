@@ -1,0 +1,15 @@
+
+{
+  "sections": {
+    "new-products": {
+      "type": "new-products",
+      "settings": {
+
+      }
+    }
+  },
+  "order": [
+    "new-products"
+  ]
+}
+

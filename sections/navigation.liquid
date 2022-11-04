@@ -1,37 +1,68 @@
 {{ 'style-navigation.css' | asset_url | stylesheet_tag }}
-
+{{ 'js-navigation.js' | asset_url | script_tag }}
 
 <div class="nav_container">
   <div class="nav_row container">
     <div class="nav_logo">
-      {% render 'logo_icon.liquid' %}
+      <a href="{{ routes.root_url }}">{% render 'logo_icon.liquid' %}</a>
     </div>
-    <div class="nav_links">
-    {% for link in linklists.main-menu.links %}
-      {% assign child_list_handle = link.title | handleize %}
-      {% if linklists[child_list_handle].links != blank %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-        [{% for childlink in linklists[child_list_handle].links %}
-          <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-        {% endfor %}]
-      {% else %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endif %}
-    {% endfor %}
-    </div>
-    <div class="nav_account">
+    <ul class="nav_links-content">
+      {% for block in section.blocks %}
+        {% for link in block.settings.header-link-list.links %}
+          <li class="nav_links">
+            <a class="nav_link-url" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+
+        {% endfor %}
+        <li class="nav_link-deals">
+          <a class="nav_link-deals--url" href="#">Our Deals</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="nav_left-icons">
+      <a href="#">{% render 'search_icon.liquid' %}</a>
       <a href="/cart">{% render 'shipping-cart_icon.liquid' %}</a>
-
-      {% if shop.customer_accounts_enabled %}
-        {% if customer %}
-          <a href="/account">account</a>
-          {{ 'log out'  | customer_logout_link }}
-        {% else %}
-          {{ 'log in ' | customer_login_link }}
-          {{ 'register' | customer_register_link }}
+      <div class="dropdown">
+        <div class="dropdown">
+          <button href="#" onclick="myFunction()" class="dropbtn"></button>
+          <div id="myDropdown" class="dropdown-content">
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+            
+              <a class="dropdown-item" href="/account">My Account</a>
+              <a class="dropdown-item" href="{{ routes.account_logout_url }}">Log Out</a>
+            {% else %}
+              <a class="dropdown-item" href="{{ routes.account_login_url }}">Log In</a>
+              <a class="dropdown-item" href="{{ routes.account_register_url }}">Create An Account</a>
+          
+          {% endif %}
         {% endif %}
-      {% endif %}
+      </div>
+      </div>
     </div>
-  </div>
 
+  </div>
 </div>
+
+
+
+{% schema %}
+  {
+    "name": "Navigation",
+    "class": "navigation",
+    "blocks": [
+      {
+        "type": "list",
+        "name": "Header list",
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "header-link-list",
+            "label": "Navigation Link List"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

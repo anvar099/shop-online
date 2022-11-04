@@ -1,0 +1,65 @@
+{{ 'style-new-products.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+
+<div class="new-product__container container">
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.collection.url | within: collection }}">
+        <div class="swiper-slide">Slide 1</div>
+      </a>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 6,
+    spaceBetween: 20,
+    slidesPerGroup: 1,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    }
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "collections",
+    "class": "collections",
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "new-product-collection",
+            "label": "New Product Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Slider",
+        "name": "New Product Collection Slider"
+      }
+    ]
+  }
+{% endschema %}

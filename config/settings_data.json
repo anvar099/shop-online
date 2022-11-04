@@ -1,6 +1,29 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "navigation-contacts": {
+        "type": "navigation-contacts",
+        "settings": {}
+      },
+      "navigation": {
+        "type": "navigation",
+        "blocks": {
+          "65ebee1e-8934-41ba-a69b-12eea6260a90": {
+            "type": "list",
+            "settings": {
+              "header-link-list": "main-menu"
+            }
+          }
+        },
+        "block_order": [
+          "65ebee1e-8934-41ba-a69b-12eea6260a90"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
-    "Default": { }
+    "Default": {}
   }
 }
